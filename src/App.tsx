@@ -1,24 +1,14 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import { Text, Grid, GridItem, extendTheme } from "@chakra-ui/react";
+import { Button, Grid, GridItem, useColorMode } from "@chakra-ui/react";
 import Nav from "./components/Nav";
 
-const config = {
-  initialColorMode: "dark",
-  useSystemMode: false,
-};
-
-const theme = extendTheme({ config });
-
 function App() {
-  const [count, setCount] = useState(0);
+  const { colorMode, toggleColorMode } = useColorMode();
 
   return (
     <>
       <Grid templateAreas={`"nav nav" "aside main"`}>
         <GridItem area="nav">
-          <Nav />
+          <Nav onToggleMode={toggleColorMode} />
         </GridItem>
         <GridItem area="aside" background="dodgerblue">
           Aside
