@@ -7,15 +7,17 @@ class HttpClient<T> {
     this.httpInstance = httpClient(endpoint);
   }
 
-  public getAll() {
+  public getAll(route: string, apiKey: string = "") {
     const abortController = new AbortController();
 
-    const req = this.httpInstance.get<T>(
-      `/games?key=231485f29f3f43858992896d502ceb58`,
-      { signal: abortController.signal }
-    );
+    const req = this.httpInstance.get<T>(route, {
+      signal: abortController.signal,
+      params: {
+        key: apiKey,
+      },
+    });
 
-    return { req, cancel: abortController.abort };
+    return { req, cancel: () => abortController.abort() };
   }
 }
 

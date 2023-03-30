@@ -7,14 +7,19 @@ function App() {
 
   return (
     <>
-      <Grid templateAreas={`"nav nav" "aside main"`}>
+      <Grid
+        marginRight="20px"
+        gap="20px"
+        gridTemplateColumns="250px auto"
+        templateAreas={`"nav nav" "aside main"`}
+      >
         <GridItem area="nav">
           <Nav onToggleMode={toggleColorMode} />
         </GridItem>
         <GridItem area="aside" background="dodgerblue">
           Aside
         </GridItem>
-        <GridItem area="main" background="yellow.400">
+        <GridItem area="main">
           <Games />
         </GridItem>
       </Grid>

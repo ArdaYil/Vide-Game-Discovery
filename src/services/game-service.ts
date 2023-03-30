@@ -1,6 +1,23 @@
 import httpService from "./http-service";
-import config from "config";
+import configModule from "../../config/config.json";
 
-export interface Game {}
+interface FetchGamesReponse {
+  count: number;
+  results: Game[];
+}
 
-export default () => httpService<any>("https://api.rawg.io/api/games");
+interface Platform {
+  image_background: string;
+}
+interface PlatformObject {
+  platform: Platform;
+}
+
+export interface Game {
+  id: number;
+  name: string;
+  background_image: string;
+  platforms: PlatformObject[];
+}
+
+export default () => httpService<FetchGamesReponse>(configModule.endpoint);
