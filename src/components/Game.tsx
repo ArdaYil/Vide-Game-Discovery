@@ -1,5 +1,4 @@
-import { Box, Image, Text, Icon, HStack } from "@chakra-ui/react";
-import { platform } from "os";
+import { Box, Image, Text, HStack } from "@chakra-ui/react";
 import { Game } from "../services/game-service";
 
 interface Props {

@@ -25,7 +25,7 @@ export default function useGame() {
       .catch((error) => {
         if (error instanceof CanceledError) return;
 
-        setErrors(error);
+        setErrors(error.message);
         setLoading(false);
       });
 
