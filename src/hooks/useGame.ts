@@ -11,7 +11,7 @@ export default function useGame() {
   const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
-    const { req, cancel } = gameClient.getAll(config.get("apiKey"));
+    const { req, cancel } = gameClient.getAll();
 
     setLoading(true);
 
