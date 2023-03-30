@@ -1,5 +1,6 @@
 import { Button, Grid, GridItem, useColorMode } from "@chakra-ui/react";
 import Nav from "./components/Nav";
+import Games from "./components/Games";
 
 function App() {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -14,7 +15,7 @@ function App() {
           Aside
         </GridItem>
         <GridItem area="main" background="yellow.400">
-          Main
+          <Games />
         </GridItem>
       </Grid>
     </>
