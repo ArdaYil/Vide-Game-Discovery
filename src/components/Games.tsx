@@ -1,4 +1,4 @@
-import { Grid, GridItem, Text } from "@chakra-ui/react";
+import { GridItem, SimpleGrid, Text } from "@chakra-ui/react";
 import useGame from "../hooks/useGame";
 import Game from "./Game";
 
@@ -6,17 +6,21 @@ export default function Games() {
   const { games, errors } = useGame();
 
   return (
-    <div>
+    <>
       {errors && <Text>{errors}</Text>}
-      <Grid gap="30px" gridTemplateColumns="1fr 1fr 1fr 1fr">
+      <SimpleGrid
+        padding="10px"
+        spacing="10px"
+        columns={{ base: 1, sm: 2, md: 2, lg: 3, xl: 4 }}
+      >
         {games.map((game) => {
           return (
-            <GridItem>
-              <Game key={game.id} game={game} />
+            <GridItem key={game.id}>
+              <Game game={game} />
             </GridItem>
           );
         })}
-      </Grid>
-    </div>
+      </SimpleGrid>
+    </>
   );
 }

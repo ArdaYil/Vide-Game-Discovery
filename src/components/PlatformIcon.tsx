@@ -1,22 +1,33 @@
+import { Icon, Image } from "@chakra-ui/react";
+import { Platform } from "../services/game-service";
 import {
   BsWindows,
   BsXbox,
   BsNintendoSwitch,
   BsFillPhoneFill,
+  BsGlobe,
 } from "react-icons/bs";
-import { FaPlaystation } from "react-icons/fa";
-import { DiLinux } from "react-icons/di";
+import { FaPlaystation, FaLinux } from "react-icons/fa";
 import { AiFillApple, AiFillAndroid } from "react-icons/ai";
+import { IconType } from "react-icons/lib";
+interface Props {
+  id: number;
+}
 
-const platformImages = {
-  1: BsWindows,
-  2: FaPlaystation,
-  3: BsXbox,
+export default function PlatformIcon({ id }: Props) {
+  const color = "#878787";
 
-  5: AiFillApple,
-  6: DiLinux,
-  7: BsNintendoSwitch,
-  8: AiFillAndroid,
-};
+  const platformImages: { [key: number]: IconType } = {
+    1: BsWindows,
+    2: FaPlaystation,
+    3: BsXbox,
+    4: BsFillPhoneFill,
+    5: AiFillApple,
+    6: FaLinux,
+    7: BsNintendoSwitch,
+    8: AiFillAndroid,
+    14: BsGlobe,
+  };
 
-export default function PlatformIcon() {}
+  return <Icon color={color} as={platformImages[id]} />;
+}

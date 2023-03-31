@@ -6,8 +6,9 @@ interface FetchGamesReponse {
   results: Game[];
 }
 
-interface Platform {
+export interface Platform {
   image_background: string;
+  id: number;
 }
 interface PlatformObject {
   platform: Platform;
@@ -17,7 +18,7 @@ export interface Game {
   id: number;
   name: string;
   background_image: string;
-  platforms: PlatformObject[];
+  parent_platforms: PlatformObject[];
 }
 
 export default () => httpService<FetchGamesReponse>(configModule.endpoint);
