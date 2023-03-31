@@ -15,8 +15,6 @@ interface Props {
 }
 
 export default function PlatformIcon({ id }: Props) {
-  const color = "#878787";
-
   const platformImages: { [key: number]: IconType } = {
     1: BsWindows,
     2: FaPlaystation,
@@ -29,5 +27,5 @@ export default function PlatformIcon({ id }: Props) {
     14: BsGlobe,
   };
 
-  return <Icon color={color} as={platformImages[id]} />;
+  return <Icon color="gray.500" as={platformImages[id]} />;
 }

@@ -1,6 +1,6 @@
 import { Box, Image, Text, HStack } from "@chakra-ui/react";
 import { Game } from "../services/game-service";
-import PlatformIcon from "./PlatformIcon";
+import CriticScore from "./CriticScore";
 import PlatformList from "./PlatformList";
 
 interface Props {
@@ -24,12 +24,15 @@ export default function GameItem({ game }: Props) {
           src={game.background_image}
         />
         <Box padding="20px">
+          <HStack justifyContent="space-between">
+            <PlatformList
+              platforms={game.parent_platforms.map((g) => g.platform)}
+            />
+            <CriticScore>{game.metacritic}</CriticScore>
+          </HStack>
           <Text fontWeight="700" fontSize="x-large">
             {game.name}
           </Text>
-          <PlatformList
-            platforms={game.parent_platforms.map((g) => g.platform)}
-          />
           <Image boxSize="40px" src="../../public/images/bulls-eye.webp" />
         </Box>
       </Box>
