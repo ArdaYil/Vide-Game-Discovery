@@ -2,6 +2,7 @@ import { Box, Image, Text, HStack } from "@chakra-ui/react";
 import { Game } from "../services/game-service";
 import CriticScore from "./CriticScore";
 import PlatformList from "./PlatformList";
+import imageCrop from "../services/imageCrop";
 
 interface Props {
   game: Game;
@@ -11,8 +12,8 @@ export default function GameItem({ game }: Props) {
   return (
     <div>
       <Box
-        height="420px"
-        width="100%"
+        height="380px"
+        width="350px"
         borderRadius="10px"
         backgroundColor="gray.700"
       >
@@ -21,7 +22,7 @@ export default function GameItem({ game }: Props) {
           borderTopRadius="10px"
           height="70%"
           width="100%"
-          src={game.background_image}
+          src={imageCrop(game.background_image)}
         />
         <Box padding="20px">
           <HStack justifyContent="space-between">
