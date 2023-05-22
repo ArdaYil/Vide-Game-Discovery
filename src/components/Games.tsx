@@ -16,6 +16,7 @@ export default function Games() {
       <SimpleGrid
         padding="10px"
         spacing="10px"
+        gridAutoRows="auto"
         columns={{ base: 1, sm: 2, md: 2, lg: 3, xl: 4 }}
       >
         {!isLoading

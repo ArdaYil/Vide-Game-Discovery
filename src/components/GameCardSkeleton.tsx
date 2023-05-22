@@ -4,8 +4,8 @@ export default function GameCardSkeleton() {
   return (
     <Card>
       <Skeleton
-        height="200px"
-        width="300px"
+        height="auto"
+        width="100%"
         borderRadius="10px"
         overflow="hidden"
       />

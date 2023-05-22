@@ -10,12 +10,16 @@ interface Props {
 
 export default function GameItem({ game }: Props) {
   return (
-    <div>
+    <div style={{ height: "100%" }}>
       <Box
-        height="380px"
-        width="350px"
+        height="100%"
+        width="100%"
         borderRadius="10px"
         backgroundColor="gray.700"
+        display="flex"
+        flexDirection="column"
+        overflow="hidden"
+        justifyItems="stretch"
       >
         <Image
           objectFit="cover"

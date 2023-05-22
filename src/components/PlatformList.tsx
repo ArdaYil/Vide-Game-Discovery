@@ -1,4 +1,5 @@
-import { HStack } from "@chakra-ui/react";
+import { Box, HStack } from "@chakra-ui/react";
+import { BsBox2Fill } from "react-icons/bs";
 import { Platform } from "../services/game-service";
 import PlatformIcon from "./PlatformIcon";
 
@@ -8,10 +9,10 @@ interface Props {
 
 export default function PlatformList({ platforms }: Props) {
   return (
-    <HStack marginY="10px">
+    <Box marginY="10px" display="flex" flexWrap="wrap" gap="5px 10px">
       {platforms.map(({ id }) => {
         return <PlatformIcon key={id} id={id} />;
       })}
-    </HStack>
+    </Box>
   );
 }
