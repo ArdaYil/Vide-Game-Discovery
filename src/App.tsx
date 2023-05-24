@@ -13,6 +13,7 @@ function App() {
           base: `"nav" "main"`,
           lg: `"nav nav" "aside main"`,
         }}
+        gridTemplateColumns={{ base: "1fr", lg: "100px auto" }}
       >
         <GridItem area="nav">
           <Nav onToggleMode={toggleColorMode} />
