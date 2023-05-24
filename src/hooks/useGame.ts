@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import gameService, { Game } from "../services/game-service";
 import { CanceledError } from "../services/httpClient";
+import { apiKey } from "../../config/config.json";
 
 const gameClient = gameService();
 
@@ -10,10 +11,7 @@ export default function useGame() {
   const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
-    const { req, cancel } = gameClient.getAll(
-      "/games",
-      "231485f29f3f43858992896d502ceb58"
-    );
+    const { req, cancel } = gameClient.getAll("/games", apiKey);
 
     setLoading(true);
 
