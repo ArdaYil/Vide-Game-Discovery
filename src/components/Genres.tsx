@@ -1,17 +1,16 @@
 import { VStack } from "@chakra-ui/react";
-import useGenre from "../hooks/useGenre";
+import useData from "../hooks/useData";
+import useGenres from "../hooks/useGenres";
 import Genre from "./Genre";
 
 export default function Genres() {
-  const { genres } = useGenre();
-
-  console.log(genres);
+  const { data: genres } = useGenres();
 
   return (
-    <VStack>
+    <ul>
       {genres.map((genre) => (
         <Genre genre={genre} />
       ))}
-    </VStack>
+    </ul>
   );
 }

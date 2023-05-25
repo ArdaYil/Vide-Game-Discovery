@@ -6,9 +6,5 @@ interface Props {
 }
 
 export default function GenreItem({ genre }: Props) {
-  return (
-    <Box>
-      <Text textAlign="left">{genre.name}</Text>
-    </Box>
-  );
+  return <li key={genre.id}>{genre.name}</li>;
 }

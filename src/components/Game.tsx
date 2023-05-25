@@ -1,5 +1,5 @@
 import { Box, Image, Text, HStack } from "@chakra-ui/react";
-import { Game } from "../services/game-service";
+import { Game } from "../hooks/useGames";
 import CriticScore from "./CriticScore";
 import PlatformList from "./PlatformList";
 import imageCrop from "../services/imageCrop";

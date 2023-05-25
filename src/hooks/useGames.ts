@@ -1,15 +1,10 @@
-import httpService from "./http-service";
-import configModule from "../../config/config.json";
-
-interface FetchGamesReponse {
-  count: number;
-  results: Game[];
-}
+import useData from "../hooks/useData";
 
 export interface Platform {
   image_background: string;
   id: number;
 }
+
 interface PlatformObject {
   platform: Platform;
 }
@@ -22,4 +17,4 @@ export interface Game {
   parent_platforms: PlatformObject[];
 }
 
-export default () => httpService<FetchGamesReponse>(configModule.endpoint);
+export default () => useData<Game>("/games");
