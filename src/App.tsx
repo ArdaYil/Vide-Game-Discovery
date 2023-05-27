@@ -2,9 +2,14 @@ import { Button, Grid, GridItem, Show, useColorMode } from "@chakra-ui/react";
 import Nav from "./components/Nav";
 import Games from "./components/Games";
 import Genres from "./components/Genres";
+import { useState } from "react";
+import { Genre } from "./hooks/useGenres";
 
 function App() {
   const { colorMode, toggleColorMode } = useColorMode();
+  const [currentGenre, setCurrentGenre] = useState<Genre | null>(null);
+
+  console.log(currentGenre);
 
   return (
     <>
@@ -21,11 +26,14 @@ function App() {
         </GridItem>
         <Show above="lg">
           <GridItem area="aside">
-            <Genres />
+            <Genres
+              currentGenre={currentGenre}
+              onGenreUpdate={(genre: Genre | null) => setCurrentGenre(genre)}
+            />
           </GridItem>
         </Show>
         <GridItem area="main">
-          <Games />
+          <Games currentGenre={currentGenre} />
         </GridItem>
       </Grid>
     </>

@@ -1,3 +1,4 @@
+import { AxiosRequestConfig } from "axios";
 import httpClient, { AxiosInstance } from "./httpClient";
 
 class HttpClient<T> {
@@ -7,15 +8,17 @@ class HttpClient<T> {
     this.httpInstance = httpClient(endpoint);
   }
 
-  public getAll(route: string, apiKey: string = "") {
+  public getAll(
+    route: string,
+    apiKey: string = "",
+    requestConfig: AxiosRequestConfig
+  ) {
     const abortController = new AbortController();
 
-    const req = this.httpInstance.get<T>(route, {
-      signal: abortController.signal,
-      params: {
-        key: apiKey,
-      },
-    });
+    requestConfig.params.key = apiKey;
+    requestConfig.signal = abortController.signal;
+
+    const req = this.httpInstance.get<T>(route, requestConfig);
 
     return { req, cancel: () => abortController.abort() };
   }

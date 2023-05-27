@@ -1,9 +1,14 @@
 import { List, Spinner, VStack, Text } from "@chakra-ui/react";
 import useData from "../hooks/useData";
-import useGenres from "../hooks/useGenres";
-import Genre from "./Genre";
+import useGenres, { Genre } from "../hooks/useGenres";
+import GenreItem from "./Genre";
 
-export default function Genres() {
+interface Props {
+  currentGenre: Genre | null;
+  onGenreUpdate: (genre: Genre | null) => void;
+}
+
+export default function Genres({ onGenreUpdate, currentGenre }: Props) {
   const { data: genres, isLoading, errors } = useGenres();
 
   if (errors.length > 0) return null;
@@ -19,7 +24,11 @@ export default function Genres() {
       ) : (
         <List marginTop="20px">
           {genres.map((genre) => (
-            <Genre genre={genre} />
+            <GenreItem
+              onGenreUpdate={onGenreUpdate}
+              genre={genre}
+              currentGenre={currentGenre}
+            />
           ))}
         </List>
       )}

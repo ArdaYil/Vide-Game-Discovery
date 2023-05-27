@@ -1,4 +1,6 @@
+import { AxiosRequestConfig } from "axios";
 import useData from "../hooks/useData";
+import { Genre } from "./useGenres";
 
 export interface Platform {
   image_background: string;
@@ -15,6 +17,10 @@ export interface Game {
   name: string;
   background_image: string;
   parent_platforms: PlatformObject[];
+  genres: Genre[];
 }
 
-export default () => useData<Game>("/games");
+export default (genre: Genre | null) =>
+  useData<Game>("/games", [genre], {
+    params: { genres: genre?.id },
+  });

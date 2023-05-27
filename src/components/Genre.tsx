@@ -1,14 +1,26 @@
-import { Box, HStack, Text, Image, ListItem } from "@chakra-ui/react";
+import { Box, HStack, Text, Image, ListItem, Button } from "@chakra-ui/react";
 import { Genre } from "../hooks/useGenres";
 import croppedUrl from "../services/imageCrop";
 
 interface Props {
   genre: Genre;
+  currentGenre: Genre | null;
+  onGenreUpdate: (genre: Genre | null) => void;
 }
 
-export default function GenreItem({ genre }: Props) {
+export default function GenreItem({
+  genre,
+  onGenreUpdate,
+  currentGenre,
+}: Props) {
   return (
-    <ListItem marginLeft="10px" marginBottom="20px">
+    <ListItem
+      boxShadow={currentGenre?.id == genre.id ? "0px 0px 10px 2px" : ""}
+      borderRadius="10px"
+      padding="5px"
+      marginLeft="10px"
+      marginBottom="20px"
+    >
       <HStack>
         <Image
           boxSize="32px"
@@ -17,9 +29,16 @@ export default function GenreItem({ genre }: Props) {
           marginRight="2px"
           src={croppedUrl(genre.image_background)}
         />
-        <Text fontSize="lg" fontWeight="600">
+        <Button
+          variant="link"
+          whiteSpace="pre-wrap"
+          textAlign="left"
+          onClick={() => onGenreUpdate(genre)}
+          fontSize="lg"
+          fontWeight="600"
+        >
           {genre.name}
-        </Text>
+        </Button>
       </HStack>
     </ListItem>
   );
