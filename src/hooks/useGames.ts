@@ -1,11 +1,7 @@
 import { AxiosRequestConfig } from "axios";
 import useData from "../hooks/useData";
 import { Genre } from "./useGenres";
-
-export interface Platform {
-  image_background: string;
-  id: number;
-}
+import { Platform } from "./usePlatform";
 
 interface PlatformObject {
   platform: Platform;

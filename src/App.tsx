@@ -4,6 +4,7 @@ import Games from "./components/Games";
 import Genres from "./components/Genres";
 import { useState } from "react";
 import { Genre } from "./hooks/useGenres";
+import Platforms from "./components/Platforms";
 
 function App() {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -33,6 +34,7 @@ function App() {
           </GridItem>
         </Show>
         <GridItem area="main">
+          <Platforms onSelect={(platform: number) => console.log(platform)} />
           <Games currentGenre={currentGenre} />
         </GridItem>
       </Grid>
