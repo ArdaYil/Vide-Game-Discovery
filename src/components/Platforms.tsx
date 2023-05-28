@@ -1,4 +1,5 @@
 import {
+  Button,
   Menu,
   MenuButton,
   MenuItem,
@@ -21,7 +22,7 @@ export default function Platforms({ onSelect, currentPlatform }: Props) {
 
   return (
     <Menu>
-      <MenuButton as="button">
+      <MenuButton as={Button}>
         {currentPlatform?.name || "Platforms"}
         <TagRightIcon as={BsChevronDown} />
       </MenuButton>

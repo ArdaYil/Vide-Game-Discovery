@@ -1,4 +1,5 @@
 import {
+  Button,
   Menu,
   MenuButton,
   MenuItem,
@@ -10,7 +11,7 @@ import { BsChevronDown } from "react-icons/bs";
 export default function SortGames() {
   return (
     <Menu>
-      <MenuButton as="button">
+      <MenuButton as={Button}>
         Order by: Relevance
         <TagRightIcon as={BsChevronDown} />
       </MenuButton>
