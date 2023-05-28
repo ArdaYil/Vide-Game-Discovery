@@ -37,6 +37,7 @@ function App() {
         </Show>
         <GridItem area="main">
           <Platforms
+            currentPlatform={currentPlatform}
             onSelect={(platform: Platform) => setCurrentPlatform(platform)}
           />
           <Games

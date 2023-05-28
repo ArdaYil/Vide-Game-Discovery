@@ -11,30 +11,25 @@ import { useState } from "react";
 
 interface Props {
   onSelect: (id: Platform) => void;
+  currentPlatform: Platform | null;
 }
 
-export default function Platforms({ onSelect }: Props) {
+export default function Platforms({ onSelect, currentPlatform }: Props) {
   const { data: platforms, errors } = usePlatform();
-  const [currentPlatform, setCurrentPlatform] = useState<string>("Platforms");
 
   if (errors.length > 0) return null;
-
-  const handleClick = (platform: Platform) => {
-    setCurrentPlatform(platform.name);
-    handleClick(platform);
-  };
 
   return (
     <Menu>
       <MenuButton as="button">
-        {currentPlatform}
+        {currentPlatform?.name || "Platforms"}
         <TagRightIcon as={BsChevronDown} />
       </MenuButton>
       <MenuList>
         {platforms.map((platform) => (
           <MenuItem
             key={platform.id}
-            onClick={() => handleClick(platform)}
+            onClick={() => onSelect(platform)}
             value={platform.id}
           >
             {platform.name}
