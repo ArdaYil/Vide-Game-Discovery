@@ -27,7 +27,7 @@ export default function GenreItem({
           borderRadius="8"
           objectFit="cover"
           marginRight="2px"
-          src={croppedUrl(genre.image_background)}
+          src={genre.image_background}
         />
         <Button
           variant="link"

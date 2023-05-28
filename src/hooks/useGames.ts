@@ -16,7 +16,7 @@ export interface Game {
   genres: Genre[];
 }
 
-export default (genre: Genre | null) =>
-  useData<Game>("/games", [genre], {
-    params: { genres: genre?.id },
+export default (genre: Genre | null, platform: Platform | null) =>
+  useData<Game>("/games", [genre, platform], {
+    params: { genres: genre?.id, parent_platforms: platform?.id },
   });
