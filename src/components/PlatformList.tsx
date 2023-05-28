@@ -1,6 +1,6 @@
 import { Box, HStack } from "@chakra-ui/react";
 import { BsBox2Fill } from "react-icons/bs";
-import { Platform } from "../services/game-service";
+import { Platform } from "../hooks/usePlatform";
 import PlatformIcon from "./PlatformIcon";
 
 interface Props {

@@ -22,5 +22,6 @@ export default (gameQuery: GameQuery) =>
     params: {
       genres: gameQuery.genre?.id,
       parent_platforms: gameQuery.parent_platforms?.id,
+      ordering: gameQuery.sortOrder?.value,
     },
   });
