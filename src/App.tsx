@@ -7,12 +7,14 @@ import { Genre } from "./hooks/useGenres";
 import Platforms from "./components/Platforms";
 import { Platform } from "./hooks/usePlatform";
 
+export interface GameQuery {
+  genre: Genre | null;
+  parent_platforms: Platform | null;
+}
+
 function App() {
   const { colorMode, toggleColorMode } = useColorMode();
-  const [currentGenre, setCurrentGenre] = useState<Genre | null>(null);
-  const [currentPlatform, setCurrentPlatform] = useState<Platform | null>(null);
-
-  console.log(currentGenre);
+  const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
 
   return (
     <>
@@ -30,20 +32,21 @@ function App() {
         <Show above="lg">
           <GridItem area="aside">
             <Genres
-              currentGenre={currentGenre}
-              onGenreUpdate={(genre: Genre | null) => setCurrentGenre(genre)}
+              currentGenre={gameQuery.genre}
+              onGenreUpdate={(genre: Genre | null) =>
+                setGameQuery({ ...gameQuery, genre })
+              }
             />
           </GridItem>
         </Show>
         <GridItem area="main">
           <Platforms
-            currentPlatform={currentPlatform}
-            onSelect={(platform: Platform) => setCurrentPlatform(platform)}
+            currentPlatform={gameQuery.parent_platforms}
+            onSelect={(platform: Platform) =>
+              setGameQuery({ ...gameQuery, parent_platforms: platform })
+            }
           />
-          <Games
-            currentGenre={currentGenre}
-            currentPlatform={currentPlatform}
-          />
+          <Games gameQuery={gameQuery} />
         </GridItem>
       </Grid>
     </>
