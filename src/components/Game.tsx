@@ -2,7 +2,9 @@ import { Box, Image, Text, HStack } from "@chakra-ui/react";
 import { Game } from "../hooks/useGames";
 import CriticScore from "./CriticScore";
 import PlatformList from "./PlatformList";
+import bullsEye from "../assets/bulls-eye.webp";
 import imageCrop from "../services/imageCrop";
+import Emoji from "./Emoji";
 
 interface Props {
   game: Game;
@@ -38,7 +40,7 @@ export default function GameItem({ game }: Props) {
           <Text fontWeight="700" fontSize="x-large">
             {game.name}
           </Text>
-          <Image boxSize="40px" src="../../public/images/bulls-eye.webp" />
+          <Emoji rating={game.rating_top} />
         </Box>
       </Box>
     </div>

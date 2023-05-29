@@ -20,7 +20,7 @@ export default function Games({ gameQuery }: Props) {
       {errors && <Text>{errors}</Text>}
       <SimpleGrid
         padding="10px"
-        spacing="10px"
+        spacing="20px"
         gridAutoRows="auto"
         columns={{ base: 1, sm: 2, md: 2, lg: 3, xl: 4 }}
       >

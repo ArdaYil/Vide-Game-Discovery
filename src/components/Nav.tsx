@@ -1,6 +1,6 @@
 import { HStack, Image } from "@chakra-ui/react";
 import ToggleSwitch from "./ToggleSwitch";
-import logo from "../../public/images/logo.webp";
+import logo from "../assets/logo.webp";
 import SearchBar from "./SearchBar";
 
 interface Props {

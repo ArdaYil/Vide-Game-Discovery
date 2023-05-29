@@ -15,6 +15,7 @@ export interface Game {
   background_image: string;
   parent_platforms: PlatformObject[];
   genres: Genre[];
+  rating_top: number;
 }
 
 export default (gameQuery: GameQuery) =>
