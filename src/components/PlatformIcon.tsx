@@ -1,5 +1,5 @@
 import { Icon, Image } from "@chakra-ui/react";
-import { Platform } from "../services/game-service";
+import { Platform } from "../hooks/usePlatform";
 import {
   BsWindows,
   BsXbox,
