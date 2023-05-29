@@ -5,13 +5,16 @@ import SearchBar from "./SearchBar";
 
 interface Props {
   onToggleMode: () => void;
+  onSearch: (search: string | undefined) => void;
 }
 
-export default function Nav({ onToggleMode }: Props) {
+export default function Nav({ onToggleMode, onSearch }: Props) {
   return (
     <HStack padding="2">
       <Image boxSize="60px" src={logo} />
-      <SearchBar>Search Games...</SearchBar>
+      <SearchBar onSearch={(search: string | undefined) => onSearch(search)}>
+        Search Games...
+      </SearchBar>
       <ToggleSwitch onChange={onToggleMode}>Dark Mode</ToggleSwitch>
     </HStack>
   );

@@ -1,5 +1,6 @@
 import {
   Button,
+  Flex,
   Grid,
   GridItem,
   HStack,
@@ -19,6 +20,7 @@ export interface GameQuery {
   genre: Genre | null;
   parent_platforms: Platform | null;
   sortOrder: SortOrder | null;
+  search: string | undefined;
 }
 
 function App() {
@@ -36,7 +38,10 @@ function App() {
         gridTemplateColumns={{ base: "1fr", lg: "150px 1fr" }}
       >
         <GridItem area="nav">
-          <Nav onToggleMode={toggleColorMode} />
+          <Nav
+            onToggleMode={toggleColorMode}
+            onSearch={(search) => setGameQuery({ ...gameQuery, search })}
+          />
         </GridItem>
         <Show above="lg">
           <GridItem area="aside">
@@ -49,7 +54,7 @@ function App() {
           </GridItem>
         </Show>
         <GridItem area="main">
-          <HStack spacing="5" paddingLeft="2" marginBottom="5">
+          <Flex gap={5} paddingLeft="2" marginBottom="5">
             <Platforms
               currentPlatform={gameQuery.parent_platforms}
               onSelect={(platform: Platform) =>
@@ -62,7 +67,7 @@ function App() {
                 setGameQuery({ ...gameQuery, sortOrder })
               }
             />
-          </HStack>
+          </Flex>
           <Games gameQuery={gameQuery} />
         </GridItem>
       </Grid>

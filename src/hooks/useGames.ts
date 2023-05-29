@@ -23,5 +23,6 @@ export default (gameQuery: GameQuery) =>
       genres: gameQuery.genre?.id,
       parent_platforms: gameQuery.parent_platforms?.id,
       ordering: gameQuery.sortOrder?.value,
+      search: gameQuery.search,
     },
   });
