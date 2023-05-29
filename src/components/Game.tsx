@@ -26,7 +26,7 @@ export default function GameItem({ game }: Props) {
           borderTopRadius="10px"
           height="70%"
           width="100%"
-          src={game.background_image}
+          src={imageCrop(game.background_image)}
         />
         <Box padding="20px">
           <HStack justifyContent="space-between">
