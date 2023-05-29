@@ -1,4 +1,4 @@
-import useData from "./useData";
+import platforms from "../data/platforms";
 
 export interface Platform {
   image_background: string;
@@ -6,4 +6,4 @@ export interface Platform {
   name: string;
 }
 
-export default () => useData<Platform>("/platforms/lists/parents");
+export default () => ({ data: platforms, isLoading: false, errors: [] });
